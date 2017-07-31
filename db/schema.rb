@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726005352) do
+ActiveRecord::Schema.define(version: 20170731174643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20170726005352) do
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.string "addressable_type"
-    t.bigint "addressable_id"
     t.decimal "latitude", precision: 10, scale: 6
     t.decimal "longitude", precision: 10, scale: 6
+    t.string "addressable_type"
+    t.bigint "addressable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
@@ -33,10 +33,18 @@ ActiveRecord::Schema.define(version: 20170726005352) do
   create_table "markets", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "day"
-    t.string "hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "operating_hours", force: :cascade do |t|
+    t.integer "day_of_week"
+    t.time "open"
+    t.time "close"
+    t.bigint "market_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["market_id"], name: "index_operating_hours_on_market_id"
   end
 
 end

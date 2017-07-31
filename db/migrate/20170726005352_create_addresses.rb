@@ -7,9 +7,10 @@ class CreateAddresses < ActiveRecord::Migration[5.1]
       t.string :state
       t.string :zip
 
-      t.references :addressable, polymorphic: true
       t.decimal :latitude, precision: 10, scale: 6
       t.decimal :longitude, precision: 10, scale: 6
+
+      t.references :addressable, polymorphic: true
 
       t.timestamps
     end

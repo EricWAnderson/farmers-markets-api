@@ -30,6 +30,8 @@ module FarmersMarketsApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    config.time_zone = 'Central Time (US & Canada)'
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'

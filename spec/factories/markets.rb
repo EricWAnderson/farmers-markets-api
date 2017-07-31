@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :market do
-    title { Faker::Lorem.word }
-    created_by { Faker::Number.number(10) }
+    name { Faker::Lorem.word }
+    description { Faker::Lorem.sentence }
   end
 end
