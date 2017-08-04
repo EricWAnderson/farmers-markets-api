@@ -4,5 +4,5 @@ class Market < ApplicationRecord
 
   delegate :street, :city, :state, :zip, to: :address
 
-  validates :name, :description, presence: true
+  validates :name, presence: true
 end
