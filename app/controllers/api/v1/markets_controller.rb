@@ -9,6 +9,8 @@ module Api::V1
         address = Address.where(addressable_type: 'Market', addressable_id: market.id).first
         hours = OperatingHour.where(market_id: market.id)
 
+        puts hours.inspect
+
         {
           id: market.id,
           name: market.name,
@@ -16,6 +18,7 @@ module Api::V1
           created_at: market.created_at,
           updated_at: market.updated_at,
           url: market.url,
+          image: 'http://localhost:3000/images/' + market.id.to_s + '.jpg',
           email: market.email,
           phone: market.phone,
           ebt: market.ebt,
