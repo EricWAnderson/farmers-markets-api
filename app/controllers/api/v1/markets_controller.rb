@@ -9,8 +9,6 @@ module Api::V1
         address = Address.where(addressable_type: 'Market', addressable_id: market.id).first
         hours = OperatingHour.where(market_id: market.id)
 
-        puts hours.inspect
-
         {
           id: market.id,
           name: market.name,
