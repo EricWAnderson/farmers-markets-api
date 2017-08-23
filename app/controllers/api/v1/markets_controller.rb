@@ -16,7 +16,7 @@ module Api::V1
           created_at: market.created_at,
           updated_at: market.updated_at,
           url: market.url,
-          image: 'http://localhost:3000/images/' + market.id.to_s + '.jpg',
+          image: 'images/' + market.id.to_s + '.jpg',
           email: market.email,
           phone: market.phone,
           ebt: market.ebt,
