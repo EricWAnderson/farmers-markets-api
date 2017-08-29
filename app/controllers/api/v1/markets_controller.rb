@@ -6,7 +6,6 @@ module Api::V1
       @markets = Market.all
 
       @markets_addresses_hours = @markets.map do |market|
-        address = Address.where(addressable_type: 'Market', addressable_id: market.id).first
         hours = OperatingHour.where(market_id: market.id)
 
         {
@@ -21,13 +20,13 @@ module Api::V1
           phone: market.phone,
           ebt: market.ebt,
           address: {
-            street: address.street,
-            unit: address.unit,
-            city: address.city,
-            state: address.state,
-            zip: address.zip,
-            latitude: address.latitude,
-            longitude: address.longitude
+            street: market.street,
+            unit: market.unit,
+            city: market.city,
+            state: market.state,
+            zip: market.zip,
+            latitude: market.latitude,
+            longitude: market.longitude
           },
           hours: hours
         }

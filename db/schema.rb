@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20170801195139) do
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.decimal "latitude", precision: 10, scale: 6
-    t.decimal "longitude", precision: 10, scale: 6
     t.string "addressable_type"
     t.bigint "addressable_id"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20170801195139) do
   create_table "markets", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "day"
+    t.string "hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
